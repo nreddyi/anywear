@@ -25,6 +25,7 @@
     --accent:#0A0A0A;
     --on-accent:#FFFFFF;
   }
+  html{--accent-solid:var(--accent);--ink-solid:var(--ink);--bg-solid:var(--bg)}
   /* colour palettes */
   html[data-theme="sand"]{--bg:#FBF8F3;--soft:#F3EDE4;--ink:#2A211B;--body:#5E544C;--mute:#9C8F84;--line:#E8DFD3;--ph:#EDE5D9;--accent:#B5643C}
   html[data-theme="sage"]{--bg:#FAFBF8;--soft:#EEF1EA;--ink:#1F2A22;--body:#4F5A51;--mute:#8A968C;--line:#E0E5DC;--ph:#E6EAE1;--accent:#5F7A61}
@@ -211,6 +212,39 @@
   .palette button.on::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1.5px solid var(--ink)}
   .palette .nm{font-size:11.5px;color:var(--ink);min-width:62px;text-transform:none;letter-spacing:0;font-weight:400}
   @media (max-width:520px){.palette .nm,.palette span{display:none}.palette{left:50%;right:auto;transform:translateX(-50%)}}
+
+
+  /* ---------- section colour modes ---------- */
+  #began,#believe,#letter,#day,#guides,#voices{transition:background-color .5s}
+  html[data-sections] .beliefs,html[data-sections] .mv{padding-top:clamp(80px,10vw,130px)}
+  /* tinted: soft washes of the palette colour */
+  html[data-sections="tinted"] .hero{background:color-mix(in srgb,var(--accent-solid) 7%,var(--bg-solid))}
+  html[data-sections="tinted"] #began{background:var(--bg-solid)}
+  html[data-sections="tinted"] #believe{background:color-mix(in srgb,var(--accent-solid) 9%,var(--bg-solid))}
+  html[data-sections="tinted"] #letter{background:color-mix(in srgb,var(--accent-solid) 16%,var(--bg-solid))}
+  html[data-sections="tinted"] #day{background:var(--bg-solid)}
+  html[data-sections="tinted"] #guides{background:color-mix(in srgb,var(--accent-solid) 7%,var(--bg-solid))}
+  html[data-sections="tinted"] #voices{background:color-mix(in srgb,var(--accent-solid) 13%,var(--bg-solid))}
+  html[data-sections="tinted"] .chip{background:color-mix(in srgb,var(--bg-solid) 75%,transparent)}
+  /* bold: solid colour sections */
+  html[data-sections="bold"] #believe{background:color-mix(in srgb,var(--accent-solid) 10%,var(--bg-solid))}
+  html[data-sections="bold"] #letter,
+  html[data-sections="bold"] #guides{--bg:var(--accent-solid);--soft:var(--accent-solid);--ink:#FFFFFF;--body:rgba(255,255,255,.86);--mute:rgba(255,255,255,.66);--line:rgba(255,255,255,.28);--accent:#FFFFFF;background:var(--accent-solid);color:#fff}
+  html[data-sections="bold"] #guides{--bg:var(--ink-solid);background:var(--ink-solid)}
+  html:not([data-theme])[data-sections="bold"] #letter{--bg:#2B2B2B;background:#2B2B2B}
+  html[data-sections="bold"] #letter .chip,html[data-sections="bold"] #guides .chip{background:transparent;border-color:rgba(255,255,255,.4);color:#fff}
+  html[data-sections="bold"] #letter .toggle{color:#fff;border-color:#fff}
+  html[data-sections="bold"] #day{background:var(--bg-solid)}
+  html[data-sections="bold"] #voices{background:color-mix(in srgb,var(--accent-solid) 18%,var(--bg-solid))}
+  html[data-sections="bold"] .hero{background:color-mix(in srgb,var(--accent-solid) 10%,var(--bg-solid))}
+
+  /* section mode control */
+  .palette .modes{display:flex;gap:2px;margin-left:6px;padding-left:10px;border-left:1px solid var(--line)}
+  .palette .modes button{width:auto;height:auto;border-radius:999px;box-shadow:none;padding:4px 10px;font-size:11.5px;color:var(--body)}
+  .palette .modes button:hover{transform:none;background:var(--soft)}
+  .palette .modes button.on{background:var(--ink-solid);color:var(--bg-solid)}
+  .palette .modes button.on::after{display:none}
+  @media (max-width:520px){.palette{flex-wrap:wrap;justify-content:center;border-radius:18px;width:calc(100% - 24px)}.palette .modes{border-left:0;padding-left:0;margin-left:0}}
 
   /* ---------- footer ---------- */
   footer{padding:60px 0 26px;font-size:13px;color:var(--body);overflow:hidden;border-top:1px solid var(--line)}
@@ -421,6 +455,11 @@
   <button data-t="olive" data-n="Olive &amp; Gold" aria-label="Olive and Gold" style="background:linear-gradient(135deg,#B9962E 50%,#F2EFE0 50%)"></button>
   <button data-t="plum" data-n="Plum" aria-label="Plum" style="background:linear-gradient(135deg,#8E4A75 50%,#F4ECF1 50%)"></button>
   <em class="nm" id="palName" style="font-style:normal">Mono</em>
+  <div class="modes" role="group" aria-label="Section colours">
+    <button data-m="plain">Plain</button>
+    <button data-m="tinted">Tinted</button>
+    <button data-m="bold">Bold</button>
+  </div>
 </div>
 
 <footer>
@@ -449,7 +488,7 @@
 <script>
   // colour palettes: ?theme=sand, sage, navy, olive, plum (mono is default)
   const THEMES = ['mono','sand','sage','navy','olive','plum'];
-  const palBtns = [...document.querySelectorAll('.palette button')];
+  const palBtns = [...document.querySelectorAll('.palette > button')];
   function setTheme(t, save) {
     if (!THEMES.includes(t)) t = 'mono';
     if (t === 'mono') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', t);
@@ -461,6 +500,20 @@
   if (!startTheme) { try { startTheme = localStorage.getItem('aw-theme'); } catch (e) {} }
   setTheme(startTheme || 'mono', false);
   palBtns.forEach(b => b.addEventListener('click', () => setTheme(b.dataset.t, true)));
+
+  // section colour modes: ?sections=plain, tinted, bold
+  const MODES = ['plain','tinted','bold'];
+  const modeBtns = [...document.querySelectorAll('.palette .modes button')];
+  function setMode(m, save) {
+    if (!MODES.includes(m)) m = 'plain';
+    if (m === 'plain') document.documentElement.removeAttribute('data-sections'); else document.documentElement.setAttribute('data-sections', m);
+    modeBtns.forEach(b => b.classList.toggle('on', b.dataset.m === m));
+    if (save) { try { localStorage.setItem('aw-sections', m); } catch (e) {} const u = new URL(location.href); if (m === 'plain') u.searchParams.delete('sections'); else u.searchParams.set('sections', m); history.replaceState(null, '', u); }
+  }
+  let startMode = new URLSearchParams(location.search).get('sections');
+  if (!startMode) { try { startMode = localStorage.getItem('aw-sections'); } catch (e) {} }
+  setMode(startMode || 'plain', false);
+  modeBtns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.m, true)));
 
   // reveal on scroll
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .1 });
