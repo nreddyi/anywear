@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Story – Anywear</title>
+<meta name="description" content="The Anywear story: everyday essentials designed for Indian women, made with the care usually saved for occasion wear.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --soft:#FAFAF8;
+    --ink:#1A1A1A;
+    --body:#5C5C5C;
+    --mute:#9A9A9A;
+    --line:#ECECEC;
+    --ph:#F1F1EF;
+    --font:'Poppins', system-ui, -apple-system, sans-serif;
+    --max:1180px;
+    --g:clamp(20px,5vw,56px);
+    --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font);font-weight:300;font-size:15px;line-height:1.85;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--g)}
+  .narrow{max-width:640px;margin:0 auto;text-align:center}
+  h1,h2,h3{font-weight:300;letter-spacing:-.02em;line-height:1.2}
+  .label{display:inline-block;font-size:11px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+  .ph{background:var(--ph);overflow:hidden;border-radius:var(--r)}
+  .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s ease}
+  .ph:hover img{transform:scale(1.025)}
+  section{padding:clamp(80px,11vw,150px) 0}
+
+  .fade{opacity:0;transform:translateY(16px);transition:opacity 1.2s ease,transform 1.2s ease}
+  .fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}.ph img{transition:none}}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px}
+  .menu{display:flex;gap:28px;font-size:12.5px;font-weight:400;color:var(--body)}
+  .menu a:hover,.menu a.on{color:var(--ink)}
+  .menu a.on{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+  .logo{font-size:17px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;padding-left:.32em}
+  .icons{display:flex;gap:20px;justify-content:flex-end;align-items:center}
+  .ico{width:19px;height:19px;stroke:var(--ink);fill:none;stroke-width:1.3}
+  .burger{display:none}
+  .drawer{max-height:0;overflow:hidden;transition:max-height .4s}
+  .drawer.open{max-height:420px;border-top:1px solid var(--line)}
+  .drawer a{display:block;padding:14px var(--g);border-bottom:1px solid var(--line);font-size:14px}
+  @media (max-width:900px){.menu{display:none}.burger{display:block}}
+  @media (min-width:901px){.drawer{display:none}}
+
+  /* hero */
+  .hero{padding:clamp(64px,9vw,120px) 0 0;text-align:center}
+  .hero h1{font-size:clamp(36px,5.2vw,68px);margin:18px auto 20px;max-width:760px}
+  .hero h1 em{font-style:italic}
+  .hero p{color:var(--body);max-width:480px;margin:0 auto;font-size:15.5px}
+  .hero .ph{margin-top:clamp(48px,6vw,72px);aspect-ratio:16/8}
+  .hero .ph img{object-position:50% 35%}
+  @media (max-width:700px){.hero .ph{aspect-ratio:4/5}}
+
+  /* intro */
+  .intro p.lead{font-size:clamp(20px,2.2vw,28px);line-height:1.6;color:var(--ink);margin-top:20px}
+  .intro p.lead span{color:var(--mute)}
+  .intro p.sub{color:var(--body);margin-top:24px}
+
+  /* beliefs */
+  .beliefs{padding-top:0}
+  .b-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px)}
+  .belief .ph{aspect-ratio:4/5}
+  .belief:nth-child(2){margin-top:56px}
+  .belief h3{font-size:19px;font-weight:400;margin-top:22px}
+  .belief p{color:var(--body);font-size:14.5px;margin-top:6px;max-width:320px}
+  .belief .n{font-size:11px;letter-spacing:.2em;color:var(--mute)}
+  @media (max-width:800px){.b-grid{grid-template-columns:1fr}.belief:nth-child(2){margin-top:0}.belief .ph{aspect-ratio:5/4}}
+
+  /* founder */
+  .founder{background:var(--soft)}
+  .f-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(36px,7vw,110px);align-items:center}
+  .f-photo{aspect-ratio:4/5;max-width:400px}
+  .f-photo img{object-position:21% 50%}
+  .founder h2{font-size:clamp(26px,3vw,40px);margin:16px 0 24px}
+  .founder h2 em{font-style:italic}
+  .founder p{color:var(--body);margin-bottom:16px;max-width:560px}
+  .more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s ease}
+  .more > div{overflow:hidden}
+  .more.open{grid-template-rows:1fr}
+  .toggle{margin-top:6px;font-size:12px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px}
+  .sign{margin-top:30px;font-size:14px}
+  .sign em{display:block;font-style:italic;font-size:18px;color:var(--ink)}
+  .sign small{display:block;font-size:12px;color:var(--mute);letter-spacing:.06em;margin-top:2px}
+  @media (max-width:800px){.f-grid{grid-template-columns:1fr}.f-photo{max-width:320px}}
+
+  /* day */
+  .day-row{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,2vw,24px);margin-top:clamp(44px,5vw,64px)}
+  .moment .ph{aspect-ratio:3/4;border-radius:999px 999px var(--r) var(--r)}
+  .moment .t{font-size:12px;letter-spacing:.18em;color:var(--mute);margin-top:16px}
+  .moment h3{font-size:15px;font-weight:400;margin-top:2px;letter-spacing:0}
+  @media (max-width:900px){.day-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:clamp(44px,5vw,64px) calc(-1*var(--g)) 0;padding:0 var(--g)}.day-row::-webkit-scrollbar{display:none}.moment{flex:0 0 46%;scroll-snap-align:start}}
+
+  /* quote line */
+  .line-q{padding:clamp(40px,6vw,80px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .line-q p{font-size:clamp(20px,2.4vw,30px);text-align:center;max-width:780px;margin:0 auto;line-height:1.55}
+  .line-q p em{color:var(--mute)}
+
+  /* mission vision */
+  .mv-grid{display:grid;grid-template-columns:1fr 1px 1fr;gap:clamp(32px,6vw,90px);margin-top:clamp(40px,5vw,60px)}
+  .mv-grid .div{background:var(--line)}
+  .mv-item h3{font-size:clamp(21px,2.2vw,28px);margin:12px 0 14px}
+  .mv-item p{color:var(--body);font-size:14.5px}
+  @media (max-width:800px){.mv-grid{grid-template-columns:1fr}.mv-grid .div{height:1px}}
+
+  /* voices */
+  .voices{background:var(--soft)}
+  .v-q{font-size:clamp(19px,2.2vw,26px);line-height:1.65;margin:22px auto 0;max-width:720px;min-height:5em;transition:opacity .4s}
+  .v-who{margin-top:22px;font-size:13px;color:var(--ink);transition:opacity .4s}
+  .v-who span{color:var(--mute)}
+  .v-dots{display:flex;justify-content:center;gap:12px;margin-top:30px}
+  .v-dots button{width:44px;height:44px;border-radius:50%;overflow:hidden;background:var(--ph);opacity:.45;outline:1px solid transparent;outline-offset:3px;transition:opacity .3s,outline-color .3s}
+  .v-dots button img{width:100%;height:100%;object-fit:cover}
+  .v-dots button.on{opacity:1;outline-color:var(--ink)}
+  .trust{margin-top:28px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+  @media (max-width:700px){.v-q{min-height:0}}
+
+  /* footer */
+  footer{padding:56px 0 28px;border-top:1px solid var(--line);font-size:13px;color:var(--body)}
+  .fg{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+  .fg h4{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin-bottom:14px}
+  .fg ul{list-style:none;display:grid;gap:6px}
+  .fg a:hover{color:var(--ink)}
+  .fb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--mute)}
+  @media (max-width:760px){.fg{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <nav class="menu">
+      <a href="https://anywearindia.com/collections/new-in">New In</a>
+      <a href="https://anywearindia.com/collections/all-womens">Women</a>
+      <a href="https://anywearindia.com/collections/all-mens">Men</a>
+      <a href="https://anywearindia.com/pages/about-us" class="on">Our Story</a>
+    </nav>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('drawer').classList.toggle('open')"><svg class="ico" viewBox="0 0 24 24"><path d="M3 8h18M3 16h18"/></svg></button>
+    <a href="https://anywearindia.com/" class="logo" aria-label="Anywear home">Anywear</a>
+    <div class="icons">
+      <a href="https://anywearindia.com/search" aria-label="Search"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
+      <a href="https://anywearindia.com/account/login" aria-label="Account"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a href="https://anywearindia.com/cart" aria-label="Cart"><svg class="ico" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></a>
+    </div>
+  </div>
+  <nav class="drawer" id="drawer">
+    <a href="https://anywearindia.com/collections/new-in">New In</a>
+    <a href="https://anywearindia.com/collections/all-womens">Women</a>
+    <a href="https://anywearindia.com/collections/all-mens">Men</a>
+    <a href="https://anywearindia.com/pages/about-us">Our Story</a>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <span class="label fade">Our Story</span>
+      <h1 class="fade">Designed for the <em>real you.</em></h1>
+      <p class="fade">Everyday essentials made with the care usually saved for occasion wear.</p>
+      <div class="ph fade"><img src="https://anywearindia.com/cdn/shop/files/about-image.webp?v=1781590646&width=1800" alt="A woman relaxing in Anywear" onerror="this.remove()"></div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="wrap narrow fade">
+      <span class="label">Where it began</span>
+      <p class="lead">We spend most of our lives in everyday clothes. <span>Yet these are often the pieces we think about the least.</span></p>
+      <p class="sub">The outfits we reach for on busy mornings, through long workdays, quick coffee runs, weekend errands and family dinners. Anywear was created to give them the attention they deserve.</p>
+    </div>
+  </section>
+
+  <!-- BELIEFS -->
+  <section class="beliefs">
+    <div class="wrap b-grid">
+      <article class="belief fade">
+        <div class="ph"><img src="https://cdn.shopify.com/s/files/1/0699/3988/8363/files/StarWhiteEverywhereTee2.jpg?width=800" alt="" onerror="this.remove()"></div>
+        <span class="n" style="display:block;margin-top:18px">01</span>
+        <h3>Comfort, considered</h3>
+        <p>Every fabric is carefully chosen, so you feel at ease wherever the day takes you.</p>
+      </article>
+      <article class="belief fade">
+        <div class="ph"><img src="https://cdn.shopify.com/s/files/1/0699/3988/8363/files/PowderBlueOversizedCroppedTee1.jpg?width=800" alt="" onerror="this.remove()"></div>
+        <span class="n" style="display:block;margin-top:18px">02</span>
+        <h3>Made for Indian bodies</h3>
+        <p>Every silhouette is designed with Indian body types in mind.</p>
+      </article>
+      <article class="belief fade">
+        <div class="ph"><img src="https://cdn.shopify.com/s/files/1/0699/3988/8363/files/CedarWoodEverywhereTee1.jpg?width=800" alt="" onerror="this.remove()"></div>
+        <span class="n" style="display:block;margin-top:18px">03</span>
+        <h3>Colours that suit you</h3>
+        <p>Every colour is selected to complement Indian skin tones.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="founder">
+    <div class="wrap f-grid">
+      <div class="ph f-photo fade"><img src="https://anywearindia.com/cdn/shop/files/founders-note.webp?v=1781594360&width=1400" alt="Anywear's founder" onerror="this.remove()"></div>
+      <div class="fade">
+        <span class="label">A note from our founder</span>
+        <h2>Clothing women <em>genuinely love living in.</em></h2>
+        <p>When I started Anywear, I wasn't trying to create another clothing brand. I wanted to create clothing that women genuinely love living in.</p>
+        <p>As women, our days are never just one thing. We move between work, family, travel, meetings, celebrations, errands, and moments of rest, often all in the same day.</p>
+        <div class="more" id="more"><div>
+          <p>Yet finding clothes that are comfortable enough for real life and beautiful enough to wear confidently everywhere isn't always easy. That's where Anywear began.</p>
+          <p>We set out to create thoughtfully designed essentials that make women feel comfortable, confident, and at ease wherever the day takes them. Pieces that don't need a special occasion; they simply fit into your life.</p>
+          <p>Because we believe comfort should never come at the cost of style, and style should never come at the cost of comfort.</p>
+          <p>Thank you for letting us be a part of your every day.</p>
+        </div></div>
+        <button class="toggle" id="toggle" aria-expanded="false" aria-controls="more">Read the full letter</button>
+        <div class="sign">With love,<em>[Founder Name]</em><small>Founder, Anywear</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A DAY -->
+  <section class="day">
+    <div class="wrap">
+      <div class="narrow fade">
+        <span class="label">A day in Anywear</span>
+        <h2 style="font-size:clamp(26px,3vw,40px);margin-top:14px">Our days are never just one thing.</h2>
+      </div>
+      <div class="day-row fade">
+        <div class="moment"><div class="ph"><img src="https://cdn.shopify.com/s/files/1/0699/3988/8363/files/Artboard6_f18e9adc-e168-491e-9cc6-f91d6f877fd3.png?width=500" alt="" onerror="this.remove()"></div><p class="t">07:00</p><h3>Morning walks</h3></div>
+        <div class="moment"><div class="ph"><img src="https://cdn.shopify.com/s/files/1/0699/3988/8363/files/Artboard11_c3c78e13-8c03-4167-a5e0-9dfb5d90a7e7.jpg?width=500" alt="" onerror="this.remove()"></div><p class="t">10:30</p><h3>Long workdays</h3></div>
+        <div class="moment"><div class="ph"><img src="https://cdn.shopify.com/s/files/1/0699/3988/8363/files/CedarWoodCroppedCrewNeckTee1.jpg?width=500" alt="" onerror="this.remove()"></div><p class="t">16:00</p><h3>Coffee runs</h3></div>
+        <div class="moment"><div class="ph"><img src="https://cdn.shopify.com/s/files/1/0699/3988/8363/files/444.jpg?width=500" alt="" onerror="this.remove()"></div><p class="t">SAT</p><h3>Weekend errands</h3></div>
+        <div class="moment"><div class="ph"><img src="https://cdn.shopify.com/s/files/1/0699/3988/8363/files/new3.png?width=500" alt="" onerror="this.remove()"></div><p class="t">20:30</p><h3>Family dinners</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE LINE -->
+  <div class="wrap">
+    <div class="line-q fade"><p>Comfort should never come at the cost of style. <em>Style should never come at the cost of comfort.</em></p></div>
+  </div>
+
+  <!-- MISSION / VISION -->
+  <section>
+    <div class="wrap">
+      <div class="narrow fade"><span class="label">What guides us</span></div>
+      <div class="mv-grid fade">
+        <div class="mv-item">
+          <span class="label">Mission</span>
+          <h3>To make everyday dressing easier, better and more dependable.</h3>
+          <p>Clothing women can wear often and enjoy repeatedly, without choosing between comfort, quality and style.</p>
+        </div>
+        <div class="div"></div>
+        <div class="mv-item">
+          <span class="label">Vision</span>
+          <h3>To become India's most trusted name in everyday essentials.</h3>
+          <p>Earning a place in daily life through reliability and genuine preference, not passing trends.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICES -->
+  <section class="voices">
+    <div class="wrap narrow">
+      <span class="label fade">In their words</span>
+      <p class="v-q fade" id="vQ"></p>
+      <p class="v-who" id="vW"></p>
+      <div class="v-dots" id="vD"></div>
+      <p class="trust">Trusted by 20,000+ women</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div><div class="logo" style="padding-left:0">Anywear</div><p style="margin-top:12px;max-width:260px">Everyday essentials, designed for the real you.</p></div>
+      <div><h4>Company</h4><ul>
+        <li><a href="https://anywearindia.com/pages/about-us">Our Story</a></li>
+        <li><a href="https://anywearindia.com/pages/contact">Contact Us</a></li>
+        <li><a href="#">Order Support</a></li>
+        <li><a href="https://www.xpressbees.com/shipment/tracking">Track Order</a></li></ul></div>
+      <div><h4>Our Policy</h4><ul>
+        <li><a href="https://anywearindia.com/policies/shipping-policy">Shipping Policy</a></li>
+        <li><a href="https://anywearindia.com/policies/privacy-policy">Privacy Policy</a></li>
+        <li><a href="https://anywearindia.com/policies/terms-of-service">Terms &amp; Conditions</a></li>
+        <li><a href="https://anywearindia.com/policies/refund-policy">Returns &amp; Refunds</a></li></ul></div>
+      <div><h4>Find us on</h4><ul>
+        <li><a href="https://www.instagram.com/anywear.india">Instagram</a></li>
+        <li><a href="https://www.facebook.com/anywear.online">Facebook</a></li></ul></div>
+    </div>
+    <div class="fb"><span>© 2026 Anywear. All rights reserved.</span><span>India (INR ₹) · English</span></div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .1 });
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+  // founder letter toggle
+  const more = document.getElementById('more'), tg = document.getElementById('toggle');
+  tg.addEventListener('click', () => { const o = more.classList.toggle('open'); tg.setAttribute('aria-expanded', o); tg.textContent = o ? 'Show less' : 'Read the full letter'; });
+
+  // voices
+  const A = 'https://anywearindia.com/cdn/shop/files/';
+  const V = [
+    ['Sandhya Gupta', '10802.jpg?v=1784094499', 'I found my perfect travel essentials. The fabric is so comfortable and breathable that I got it in all the colours available!'],
+    ['Kavita Agarwal', '10803.jpg?v=1784094500', "I wear my Anywear everywhere I go. It's so comfortable and versatile, perfect for stepping out or lounging in."],
+    ['Sapna Agarwal', '1080.jpg?v=1784094499', 'Anywear has become my go-to for early morning walks. So breathable and comfortable.'],
+    ['Sakshi Chugh', 'Sakshi_Chugh.png?v=1784099927', "I wear my Anywear all day long. It's so breathable and perfectly fitted."],
+    ['Ginni Sharma', 'Ginni_Sharma.png?v=1784100009', 'I absolutely love my Anywear. Ideal for long hours at work or a day out, and comfortable all day.']
+  ];
+  const q = document.getElementById('vQ'), w = document.getElementById('vW'), d = document.getElementById('vD');
+  let k = 0, t;
+  V.forEach((v, i) => { const b = document.createElement('button'); b.setAttribute('aria-label', v[0]); b.innerHTML = `<img src="${A + v[1]}&width=120" alt="" onerror="this.remove()">`; b.onclick = () => show(i); d.appendChild(b); });
+  function show(i) {
+    k = i; [...d.children].forEach((b, j) => b.classList.toggle('on', j === i));
+    q.style.opacity = 0; w.style.opacity = 0;
+    setTimeout(() => { q.textContent = '“' + V[i][2] + '”'; w.innerHTML = V[i][0] + ' <span>· Anywear customer</span>'; q.style.opacity = 1; w.style.opacity = 1; }, 300);
+    clearTimeout(t); t = setTimeout(() => show((k + 1) % V.length), 7000);
+  }
+  show(0);
+</script>
+</body>
+</html>
