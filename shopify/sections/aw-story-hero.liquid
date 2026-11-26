@@ -1,0 +1,258 @@
+{% comment %}
+  Anywear – Our Story (Aurora). Section: Story: hero
+{% endcomment %}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  .aw-s-hero{--bg:#FBFAFD;--soft:#F1EEF7;--ink:#17142A;--body:#5E5A72;--mute:#9E99B2;--line:#E7E3F0;--accent:#6D4BD8;--r:26px;position:relative;font-family:'Poppins',system-ui,-apple-system,sans-serif;font-weight:300;font-size:15px;line-height:1.8;color:var(--ink);-webkit-font-smoothing:antialiased;padding:calc(var(--pt) * .6) 0 calc(var(--pb) * .6)}
+  @media (min-width:750px){.aw-s-hero{padding:var(--pt) 0 var(--pb)}}
+  .aw-s-hero *,.aw-s-hero *::before,.aw-s-hero *::after{box-sizing:border-box}
+  .aw-s-hero :is(h1,h2,h3,p,blockquote,figure){margin:0;font-family:inherit;color:inherit;font-weight:400;letter-spacing:-.025em;line-height:1.18}
+  .aw-s-hero p{line-height:1.8;letter-spacing:0;font-weight:300}
+  .aw-s-hero img{display:block;max-width:100%}
+  .aw-s-hero button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0;letter-spacing:inherit}
+  .aw-s-hero .aw-wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+  .aw-s-hero .aw-label{display:block;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;line-height:1.5}
+  .aw-s-hero .aw-ph{background:var(--soft);overflow:hidden;border-radius:var(--r)}
+  .aw-s-hero .aw-ph img{width:100%;height:100%;object-fit:cover}
+  .aw-s-hero .aw-muted{color:var(--body)}
+  .aw-s-hero .aw-glass{background:rgba(255,255,255,.55);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:1px solid rgba(255,255,255,.85);box-shadow:0 20px 50px rgba(40,20,90,.08)}
+  .aw-s-hero .aw-grad{background:linear-gradient(90deg,#6D4BD8,#D9546D 55%,#E8914A);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .aw-s-hero .aw-center{text-align:center;max-width:720px;margin:0 auto}
+  .aw-s-hero .aw-center h2{font-size:clamp(28px,3.6vw,50px);font-weight:500;letter-spacing:-.04em}
+  .aw-s-hero .aw-fade{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease}
+  .aw-s-hero .aw-fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.aw-s-hero .aw-fade{opacity:1;transform:none;transition:none}}
+  .aw-hero{min-height:min(calc(100svh - 64px),920px);display:grid;place-items:center;text-align:center;overflow:hidden}
+  .aw-hero .copy{position:relative;z-index:2;max-width:760px;padding:0 20px}
+  .aw-hero h1{font-size:clamp(40px,6.6vw,96px);font-weight:500;letter-spacing:-.055em;line-height:.98}
+  .aw-hero .sub{max-width:480px;margin:20px auto 0;font-size:15.5px}
+  .aw-hero .pc{position:absolute;z-index:1;border-radius:22px;overflow:hidden;padding:8px;transition:transform .25s ease-out}
+  .aw-hero .pc .aw-ph{border-radius:16px;width:100%;height:100%;animation:awfloat 7s ease-in-out infinite}
+  .aw-hero .pc span{position:absolute;left:16px;bottom:16px;font-size:11.5px;font-weight:500;line-height:1.4;background:rgba(255,255,255,.88);padding:5px 10px;border-radius:999px}
+  .aw-hero .p1{left:4%;top:12%;width:clamp(150px,15vw,230px);aspect-ratio:3/4;rotate:-7deg}
+  .aw-hero .p2{left:9%;bottom:8%;width:clamp(130px,13vw,200px);aspect-ratio:4/5;rotate:5deg}
+  .aw-hero .p3{right:5%;top:10%;width:clamp(160px,16vw,250px);aspect-ratio:4/5;rotate:6deg}
+  .aw-hero .p4{right:10%;bottom:7%;width:clamp(130px,12vw,190px);aspect-ratio:1;rotate:-5deg}
+  .aw-hero .p2 .aw-ph{animation-delay:-2s}.aw-hero .p3 .aw-ph{animation-delay:-4s}.aw-hero .p4 .aw-ph{animation-delay:-1s}
+  @keyframes awfloat{50%{transform:translateY(-10px)}}
+  .aw-hero .badges{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:26px}
+  .aw-hero .badges span{font-size:12.5px;line-height:1.4;padding:7px 14px;border-radius:999px}
+  .aw-hero .collage{display:contents}
+  @media (max-width:900px){.aw-hero{min-height:0;display:flex;flex-direction:column-reverse}.aw-hero .pc{position:relative;inset:auto;rotate:0deg;width:auto}.aw-hero .collage{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:32px;padding:0 16px;width:100%}.aw-hero .pc span{display:none}}
+  @media (prefers-reduced-motion:reduce){.aw-hero .pc .aw-ph{animation:none}}
+</style>
+
+<div id="aw-s-hero-{{ section.id }}" class="aw-s-hero" style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px">
+  <div class="aw-hero">
+    <div class="collage">
+      <div class="pc aw-glass p1" data-d="18">
+        <div class="aw-ph">{%- if section.settings.image1 != blank -%}{%- assign aw_alt = section.settings.image1.alt | default: "Anywear" -%}{{ section.settings.image1 | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '250, 500, 1000', sizes: '250px', alt: aw_alt }}{%- elsif section.settings.image1_url != blank -%}<img src="{{ section.settings.image1_url }}" alt="Anywear" loading="lazy">{%- endif -%}</div>
+        {%- if section.settings.image1_tag != blank -%}<span>{{ section.settings.image1_tag }}</span>{%- endif -%}
+      </div>
+      <div class="pc aw-glass p2" data-d="30">
+        <div class="aw-ph">{%- if section.settings.image2 != blank -%}{%- assign aw_alt = section.settings.image2.alt | default: "Anywear" -%}{{ section.settings.image2 | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '250, 500, 1000', sizes: '250px', alt: aw_alt }}{%- elsif section.settings.image2_url != blank -%}<img src="{{ section.settings.image2_url }}" alt="Anywear" loading="lazy">{%- endif -%}</div>
+        {%- if section.settings.image2_tag != blank -%}<span>{{ section.settings.image2_tag }}</span>{%- endif -%}
+      </div>
+      <div class="pc aw-glass p3" data-d="22">
+        <div class="aw-ph">{%- if section.settings.image3 != blank -%}{%- assign aw_alt = section.settings.image3.alt | default: "Anywear" -%}{{ section.settings.image3 | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '250, 500, 1000', sizes: '250px', alt: aw_alt }}{%- elsif section.settings.image3_url != blank -%}<img src="{{ section.settings.image3_url }}" alt="Anywear" loading="lazy">{%- endif -%}</div>
+        {%- if section.settings.image3_tag != blank -%}<span>{{ section.settings.image3_tag }}</span>{%- endif -%}
+      </div>
+      <div class="pc aw-glass p4" data-d="34">
+        <div class="aw-ph">{%- if section.settings.image4 != blank -%}{%- assign aw_alt = section.settings.image4.alt | default: "Anywear" -%}{{ section.settings.image4 | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '250, 500, 1000', sizes: '250px', alt: aw_alt }}{%- elsif section.settings.image4_url != blank -%}<img src="{{ section.settings.image4_url }}" alt="Anywear" loading="lazy">{%- endif -%}</div>
+        {%- if section.settings.image4_tag != blank -%}<span>{{ section.settings.image4_tag }}</span>{%- endif -%}
+      </div>
+    </div>
+    <div class="copy">
+      {%- if section.settings.label != blank -%}<span class="aw-label aw-fade">{{ section.settings.label }}</span>{%- endif -%}
+      <h1 class="aw-fade">{{ section.settings.heading }}{%- if section.settings.heading_highlight != blank -%}<br><span class="aw-grad">{{ section.settings.heading_highlight }}</span>{%- endif -%}</h1>
+      {%- if section.settings.text != blank -%}<p class="sub aw-muted aw-fade">{{ section.settings.text }}</p>{%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+      <div class="badges aw-fade">{%- for block in section.blocks -%}<span class="aw-glass" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>{%- endfor -%}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var root = document.getElementById('aw-s-hero-{{ section.id }}');
+    if (!root) return;
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: .12 });
+    root.querySelectorAll('.aw-fade').forEach(function (el) { if (window.Shopify && Shopify.designMode) el.classList.add('in'); else io.observe(el); });
+    if (matchMedia('(hover:hover) and (min-width:901px)').matches) {
+      var hero = root.querySelector('.aw-hero'), pcs = hero.querySelectorAll('.pc');
+      hero.addEventListener('mousemove', function (e) { var r = hero.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        pcs.forEach(function (p) { var d = +p.dataset.d; p.style.transform = 'translate(' + x * d + 'px,' + y * d + 'px)'; }); });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Story: hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Small label",
+      "default": "Our Story"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Everyday clothes,"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Heading (gradient line)",
+      "default": "beautifully considered."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Anywear makes essentials for Indian women, with the care usually saved for occasion wear."
+    },
+    {
+      "type": "header",
+      "content": "Floating photos"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Photo 1"
+    },
+    {
+      "type": "text",
+      "id": "image1_url",
+      "label": "Photo 1: image URL (used when no image is chosen)",
+      "default": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/PowderBlueOversizedCroppedTee1.jpg?width=600"
+    },
+    {
+      "type": "text",
+      "id": "image1_tag",
+      "label": "Photo 1: tag",
+      "default": "Comfortable"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Photo 2"
+    },
+    {
+      "type": "text",
+      "id": "image2_url",
+      "label": "Photo 2: image URL (used when no image is chosen)",
+      "default": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/CedarWoodCroppedCrewNeckTee1.jpg?width=600"
+    },
+    {
+      "type": "text",
+      "id": "image2_tag",
+      "label": "Photo 2: tag",
+      "default": ""
+    },
+    {
+      "type": "image_picker",
+      "id": "image3",
+      "label": "Photo 3"
+    },
+    {
+      "type": "text",
+      "id": "image3_url",
+      "label": "Photo 3: image URL (used when no image is chosen)",
+      "default": "https://anywearindia.com/cdn/shop/files/about-image.webp?v=1781590646&width=600"
+    },
+    {
+      "type": "text",
+      "id": "image3_tag",
+      "label": "Photo 3: tag",
+      "default": "Designed for you"
+    },
+    {
+      "type": "image_picker",
+      "id": "image4",
+      "label": "Photo 4"
+    },
+    {
+      "type": "text",
+      "id": "image4_url",
+      "label": "Photo 4: image URL (used when no image is chosen)",
+      "default": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/OrchidBouquetEverywhereTee1.jpg?width=600"
+    },
+    {
+      "type": "text",
+      "id": "image4_tag",
+      "label": "Photo 4: tag",
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Made in India"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Story: hero",
+      "blocks": [
+        {
+          "type": "badge",
+          "settings": {
+            "text": "Made in India"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "text": "20,000+ women"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "text": "Made for real life"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

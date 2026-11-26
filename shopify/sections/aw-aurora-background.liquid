@@ -1,0 +1,74 @@
+{% comment %}
+  Anywear – Our Story (Aurora). Section: Aurora background.
+  Place this section FIRST on the page. It paints the soft moving colour blobs
+  behind every other section on the page. It has no content of its own.
+{% endcomment %}
+<style>
+  #shopify-section-{{ section.id }}{position:static!important}
+  main:has(.aw-blobs){position:relative;isolation:isolate;overflow:clip;background:{{ section.settings.page_bg }}}
+  .aw-blobs{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+  .aw-blobs i{position:absolute;width:46vw;height:46vw;max-width:900px;max-height:900px;border-radius:50%;filter:blur(80px);opacity:{{ section.settings.opacity | divided_by: 100.0 }}}
+  .aw-blobs i:nth-child(1){background:{{ section.settings.color_1 }};left:-10vw;top:-12vw;animation:awb1 22s ease-in-out infinite alternate}
+  .aw-blobs i:nth-child(2){background:{{ section.settings.color_2 }};right:-14vw;top:18%;animation:awb2 26s ease-in-out infinite alternate}
+  .aw-blobs i:nth-child(3){background:{{ section.settings.color_3 }};left:20vw;top:45%;animation:awb3 30s ease-in-out infinite alternate}
+  .aw-blobs i:nth-child(4){background:{{ section.settings.color_1 }};right:-10vw;top:70%;animation:awb1 28s ease-in-out infinite alternate}
+  .aw-blobs i:nth-child(5){background:{{ section.settings.color_2 }};left:-12vw;bottom:-10vw;animation:awb2 24s ease-in-out infinite alternate}
+  @keyframes awb1{to{transform:translate(18vw,12vh) scale(1.15)}}
+  @keyframes awb2{to{transform:translate(-16vw,20vh) scale(.9)}}
+  @keyframes awb3{to{transform:translate(14vw,-16vh) scale(1.2)}}
+  @media (prefers-reduced-motion:reduce){.aw-blobs i{animation:none}}
+</style>
+<div class="aw-blobs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+{% schema %}
+{
+  "name": "Aurora background",
+  "tag": "div",
+  "class": "aw-bg-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Keep this section first on the page. It adds the soft moving colour background behind all Our Story sections."
+    },
+    {
+      "type": "color",
+      "id": "page_bg",
+      "label": "Page background",
+      "default": "#FBFAFD"
+    },
+    {
+      "type": "color",
+      "id": "color_1",
+      "label": "Blob colour 1",
+      "default": "#D9CCFF"
+    },
+    {
+      "type": "color",
+      "id": "color_2",
+      "label": "Blob colour 2",
+      "default": "#FFD6C4"
+    },
+    {
+      "type": "color",
+      "id": "color_3",
+      "label": "Blob colour 3",
+      "default": "#C8EEDF"
+    },
+    {
+      "type": "range",
+      "id": "opacity",
+      "label": "Blob strength",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    }
+  ],
+  "presets": [
+    {
+      "name": "Aurora background"
+    }
+  ]
+}
+{% endschema %}

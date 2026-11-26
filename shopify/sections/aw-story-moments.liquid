@@ -1,0 +1,190 @@
+{% comment %}
+  Anywear – Our Story (Aurora). Section: Story: moments
+{% endcomment %}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  .aw-s-moments{--bg:#FBFAFD;--soft:#F1EEF7;--ink:#17142A;--body:#5E5A72;--mute:#9E99B2;--line:#E7E3F0;--accent:#6D4BD8;--r:26px;position:relative;font-family:'Poppins',system-ui,-apple-system,sans-serif;font-weight:300;font-size:15px;line-height:1.8;color:var(--ink);-webkit-font-smoothing:antialiased;padding:calc(var(--pt) * .6) 0 calc(var(--pb) * .6)}
+  @media (min-width:750px){.aw-s-moments{padding:var(--pt) 0 var(--pb)}}
+  .aw-s-moments *,.aw-s-moments *::before,.aw-s-moments *::after{box-sizing:border-box}
+  .aw-s-moments :is(h1,h2,h3,p,blockquote,figure){margin:0;font-family:inherit;color:inherit;font-weight:400;letter-spacing:-.025em;line-height:1.18}
+  .aw-s-moments p{line-height:1.8;letter-spacing:0;font-weight:300}
+  .aw-s-moments img{display:block;max-width:100%}
+  .aw-s-moments button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0;letter-spacing:inherit}
+  .aw-s-moments .aw-wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+  .aw-s-moments .aw-label{display:block;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;line-height:1.5}
+  .aw-s-moments .aw-ph{background:var(--soft);overflow:hidden;border-radius:var(--r)}
+  .aw-s-moments .aw-ph img{width:100%;height:100%;object-fit:cover}
+  .aw-s-moments .aw-muted{color:var(--body)}
+  .aw-s-moments .aw-glass{background:rgba(255,255,255,.55);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:1px solid rgba(255,255,255,.85);box-shadow:0 20px 50px rgba(40,20,90,.08)}
+  .aw-s-moments .aw-grad{background:linear-gradient(90deg,#6D4BD8,#D9546D 55%,#E8914A);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .aw-s-moments .aw-center{text-align:center;max-width:720px;margin:0 auto}
+  .aw-s-moments .aw-center h2{font-size:clamp(28px,3.6vw,50px);font-weight:500;letter-spacing:-.04em}
+  .aw-s-moments .aw-fade{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease}
+  .aw-s-moments .aw-fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.aw-s-moments .aw-fade{opacity:1;transform:none;transition:none}}
+  .aw-s-moments .strip{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:32px max(16px,calc((100vw - 1160px) / 2)) 24px;cursor:grab}
+  .aw-s-moments .strip::-webkit-scrollbar{display:none}
+  .aw-s-moments .panel{flex:0 0 min(860px,86vw);scroll-snap-align:center;border-radius:30px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;min-height:400px}
+  .aw-s-moments .panel .t{padding:clamp(26px,4vw,52px);display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+  .aw-s-moments .num{font-size:clamp(70px,9vw,130px);font-weight:700;letter-spacing:-.07em;line-height:.8}
+  .aw-s-moments .panel h3{font-size:clamp(22px,2.4vw,32px);margin-bottom:10px}
+  .aw-s-moments .panel .aw-ph{margin:10px;border-radius:22px}
+  .aw-s-moments .hint{text-align:center;font-size:12.5px;color:var(--mute)}
+  @media (max-width:700px){.aw-s-moments .panel{grid-template-columns:1fr}.aw-s-moments .panel .aw-ph{aspect-ratio:4/3}}
+</style>
+
+<div id="aw-s-moments-{{ section.id }}" class="aw-s-moments" style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px">
+  <div class="aw-wrap aw-center aw-fade">
+    {%- if section.settings.label != blank -%}<span class="aw-label">{{ section.settings.label }}</span>{%- endif -%}
+    <h2>{{ section.settings.heading }}</h2>
+  </div>
+  <div class="strip">
+    {%- for block in section.blocks -%}
+    <article class="panel aw-glass" {{ block.shopify_attributes }}>
+      <div class="t">
+        <span class="num aw-grad">{{ block.settings.number }}</span>
+        <div><h3>{{ block.settings.title }}</h3><p class="aw-muted">{{ block.settings.text }}</p></div>
+      </div>
+      <div class="aw-ph">{%- if block.settings.image != blank -%}{%- assign aw_alt = block.settings.image.alt | default: "Anywear" -%}{{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '450, 900, 1800', sizes: '(min-width: 700px) 430px, 86vw', alt: aw_alt }}{%- elsif block.settings.image_url != blank -%}<img src="{{ block.settings.image_url }}" alt="Anywear" loading="lazy">{%- endif -%}</div>
+    </article>
+    {%- endfor -%}
+  </div>
+  {%- if section.settings.hint != blank -%}<p class="hint">{{ section.settings.hint }}</p>{%- endif -%}
+</div>
+
+<script>
+  (function () {
+    var root = document.getElementById('aw-s-moments-{{ section.id }}');
+    if (!root) return;
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: .12 });
+    root.querySelectorAll('.aw-fade').forEach(function (el) { if (window.Shopify && Shopify.designMode) el.classList.add('in'); else io.observe(el); });
+    var hs = root.querySelector('.strip'), dn = false, sx = 0, sl = 0;
+    hs.addEventListener('mousedown', function (e) { dn = true; sx = e.pageX; sl = hs.scrollLeft; hs.style.scrollSnapType = 'none'; });
+    window.addEventListener('mouseup', function () { if (dn) { dn = false; hs.style.scrollSnapType = ''; } });
+    hs.addEventListener('mousemove', function (e) { if (dn) { e.preventDefault(); hs.scrollLeft = sl - (e.pageX - sx); } });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Story: moments",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Small label",
+      "default": "Where it began"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Three moments that made Anywear."
+    },
+    {
+      "type": "text",
+      "id": "hint",
+      "label": "Swipe hint",
+      "default": "Drag or swipe sideways →"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "panel",
+      "name": "Story panel",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "The overlooked"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "We spend most of our lives in everyday clothes: busy mornings, long workdays, coffee runs and family dinners. Yet they're the pieces we think about least."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "image_url",
+          "label": "Photo: image URL (used when no image is chosen)",
+          "default": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/StarWhiteEverywhereTee2.jpg?width=900"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Story: moments",
+      "blocks": [
+        {
+          "type": "panel",
+          "settings": {
+            "number": "01",
+            "title": "The overlooked",
+            "text": "We spend most of our lives in everyday clothes: busy mornings, long workdays, coffee runs and family dinners. Yet they're the pieces we think about least.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/StarWhiteEverywhereTee2.jpg?width=900"
+          }
+        },
+        {
+          "type": "panel",
+          "settings": {
+            "number": "02",
+            "title": "The search",
+            "text": "Our days are never just one thing. Finding clothes comfortable enough for real life and beautiful enough to wear everywhere isn't always easy.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/CeladonEverywhereTee1.jpg?width=900"
+          }
+        },
+        {
+          "type": "panel",
+          "settings": {
+            "number": "03",
+            "title": "The answer",
+            "text": "Anywear was created to change that: thoughtfully designed essentials that make women feel comfortable, confident and at ease.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/PeachyKeenEverywhereTee2.jpg?width=900"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

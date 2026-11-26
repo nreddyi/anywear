@@ -1,0 +1,255 @@
+{
+  "sections": {
+    "aurora_background": {
+      "type": "aw-aurora-background",
+      "settings": {}
+    },
+    "story_hero": {
+      "type": "aw-story-hero",
+      "settings": {},
+      "blocks": {
+        "story_hero_0": {
+          "type": "badge",
+          "settings": {
+            "text": "Made in India"
+          }
+        },
+        "story_hero_1": {
+          "type": "badge",
+          "settings": {
+            "text": "20,000+ women"
+          }
+        },
+        "story_hero_2": {
+          "type": "badge",
+          "settings": {
+            "text": "Made for real life"
+          }
+        }
+      },
+      "block_order": [
+        "story_hero_0",
+        "story_hero_1",
+        "story_hero_2"
+      ]
+    },
+    "story_moments": {
+      "type": "aw-story-moments",
+      "settings": {},
+      "blocks": {
+        "story_moments_0": {
+          "type": "panel",
+          "settings": {
+            "number": "01",
+            "title": "The overlooked",
+            "text": "We spend most of our lives in everyday clothes: busy mornings, long workdays, coffee runs and family dinners. Yet they're the pieces we think about least.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/StarWhiteEverywhereTee2.jpg?width=900"
+          }
+        },
+        "story_moments_1": {
+          "type": "panel",
+          "settings": {
+            "number": "02",
+            "title": "The search",
+            "text": "Our days are never just one thing. Finding clothes comfortable enough for real life and beautiful enough to wear everywhere isn't always easy.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/CeladonEverywhereTee1.jpg?width=900"
+          }
+        },
+        "story_moments_2": {
+          "type": "panel",
+          "settings": {
+            "number": "03",
+            "title": "The answer",
+            "text": "Anywear was created to change that: thoughtfully designed essentials that make women feel comfortable, confident and at ease.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/PeachyKeenEverywhereTee2.jpg?width=900"
+          }
+        }
+      },
+      "block_order": [
+        "story_moments_0",
+        "story_moments_1",
+        "story_moments_2"
+      ]
+    },
+    "story_values": {
+      "type": "aw-story-values",
+      "settings": {},
+      "blocks": {
+        "story_values_0": {
+          "type": "value",
+          "settings": {
+            "icon": "comfort",
+            "title": "Comfort",
+            "text": "Every fabric is carefully chosen, so you feel at ease wherever the day takes you.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/StarWhiteEverywhereTee3.jpg?width=800"
+          }
+        },
+        "story_values_1": {
+          "type": "value",
+          "settings": {
+            "icon": "fit",
+            "title": "Fit",
+            "text": "Every silhouette is designed with Indian body types in mind.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/Anywear215255-Final.jpg?width=800"
+          }
+        },
+        "story_values_2": {
+          "type": "value",
+          "settings": {
+            "icon": "colour",
+            "title": "Colour",
+            "text": "Every colour is selected to complement Indian skin tones.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/CedarWoodEverywhereTee1.jpg?width=800"
+          }
+        }
+      },
+      "block_order": [
+        "story_values_0",
+        "story_values_1",
+        "story_values_2"
+      ]
+    },
+    "story_day": {
+      "type": "aw-story-day",
+      "settings": {},
+      "blocks": {
+        "story_day_0": {
+          "type": "moment",
+          "settings": {
+            "time": "07:00",
+            "title": "Morning walks",
+            "text": "Starting the day at ease.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/SkyBlueLongSleevesTee1.jpg?width=600"
+          }
+        },
+        "story_day_1": {
+          "type": "moment",
+          "settings": {
+            "time": "10:30",
+            "title": "Long workdays",
+            "text": "Comfortable, hour after hour.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/Anywear215394-Final.jpg?width=600"
+          }
+        },
+        "story_day_2": {
+          "type": "moment",
+          "settings": {
+            "time": "16:00",
+            "title": "Coffee runs",
+            "text": "Ready to step out as you are.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/CedarWoodCroppedCrewNeckTee1.jpg?width=600"
+          }
+        },
+        "story_day_3": {
+          "type": "moment",
+          "settings": {
+            "time": "Sat",
+            "title": "Weekend errands",
+            "text": "Moving between plans with ease.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/BlackBeautyEverywhereTee1.jpg?width=600"
+          }
+        },
+        "story_day_4": {
+          "type": "moment",
+          "settings": {
+            "time": "20:30",
+            "title": "Family dinners",
+            "text": "Still comfortable at day's end.",
+            "image_url": "https://cdn.shopify.com/s/files/1/0699/3988/8363/files/PeachyKeenEverywhereTee2.jpg?width=600"
+          }
+        }
+      },
+      "block_order": [
+        "story_day_0",
+        "story_day_1",
+        "story_day_2",
+        "story_day_3",
+        "story_day_4"
+      ]
+    },
+    "story_founder": {
+      "type": "aw-story-founder",
+      "settings": {}
+    },
+    "story_mission_vision": {
+      "type": "aw-story-mission-vision",
+      "settings": {},
+      "blocks": {
+        "story_mission_vision_0": {
+          "type": "card",
+          "settings": {
+            "label": "Our mission",
+            "title": "To make everyday dressing easier, better and more dependable.",
+            "text": "Clothing women can wear often and enjoy repeatedly, without choosing between comfort, quality and style, with designs that stay wearable beyond seasons and trends."
+          }
+        },
+        "story_mission_vision_1": {
+          "type": "card",
+          "settings": {
+            "label": "Our vision",
+            "title": "To become India's most trusted name in everyday essentials.",
+            "text": "Setting a new standard for how daily clothing is designed, worn and experienced, chosen for reliability and genuine preference rather than passing trends."
+          }
+        }
+      },
+      "block_order": [
+        "story_mission_vision_0",
+        "story_mission_vision_1"
+      ]
+    },
+    "story_reviews": {
+      "type": "aw-story-reviews",
+      "settings": {},
+      "blocks": {
+        "story_reviews_0": {
+          "type": "review",
+          "settings": {
+            "name": "Sandhya Gupta",
+            "quote": "I found my perfect travel essentials. The fabric is so comfortable and breathable that I got it in all the colours available!",
+            "image_url": "https://anywearindia.com/cdn/shop/files/10802.jpg?v=1784094499&width=80"
+          }
+        },
+        "story_reviews_1": {
+          "type": "review",
+          "settings": {
+            "name": "Kavita Agarwal",
+            "quote": "I wear my Anywear everywhere I go. It's so comfortable and versatile, perfect for stepping out or lounging in.",
+            "image_url": "https://anywearindia.com/cdn/shop/files/10803.jpg?v=1784094500&width=80"
+          }
+        },
+        "story_reviews_2": {
+          "type": "review",
+          "settings": {
+            "name": "Sakshi Chugh",
+            "quote": "I wear my Anywear all day long. It's so breathable and perfectly fitted, with an incredibly impressive material.",
+            "image_url": "https://anywearindia.com/cdn/shop/files/Sakshi_Chugh.png?v=1784099927&width=80"
+          }
+        },
+        "story_reviews_3": {
+          "type": "review",
+          "settings": {
+            "name": "Ginni Sharma",
+            "quote": "I absolutely love my Anywear purchase. It's so stretchy and perfectly fitted, making it ideal for long hours at work or a day out.",
+            "image_url": "https://anywearindia.com/cdn/shop/files/Ginni_Sharma.png?v=1784100009&width=80"
+          }
+        }
+      },
+      "block_order": [
+        "story_reviews_0",
+        "story_reviews_1",
+        "story_reviews_2",
+        "story_reviews_3"
+      ]
+    }
+  },
+  "order": [
+    "aurora_background",
+    "story_hero",
+    "story_moments",
+    "story_values",
+    "story_day",
+    "story_founder",
+    "story_mission_vision",
+    "story_reviews"
+  ]
+}

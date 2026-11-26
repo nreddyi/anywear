@@ -1,0 +1,134 @@
+{% comment %}
+  Anywear – Our Story (Aurora). Section: Story: mission & vision
+{% endcomment %}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  .aw-s-mv{--bg:#FBFAFD;--soft:#F1EEF7;--ink:#17142A;--body:#5E5A72;--mute:#9E99B2;--line:#E7E3F0;--accent:#6D4BD8;--r:26px;position:relative;font-family:'Poppins',system-ui,-apple-system,sans-serif;font-weight:300;font-size:15px;line-height:1.8;color:var(--ink);-webkit-font-smoothing:antialiased;padding:calc(var(--pt) * .6) 0 calc(var(--pb) * .6)}
+  @media (min-width:750px){.aw-s-mv{padding:var(--pt) 0 var(--pb)}}
+  .aw-s-mv *,.aw-s-mv *::before,.aw-s-mv *::after{box-sizing:border-box}
+  .aw-s-mv :is(h1,h2,h3,p,blockquote,figure){margin:0;font-family:inherit;color:inherit;font-weight:400;letter-spacing:-.025em;line-height:1.18}
+  .aw-s-mv p{line-height:1.8;letter-spacing:0;font-weight:300}
+  .aw-s-mv img{display:block;max-width:100%}
+  .aw-s-mv button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0;letter-spacing:inherit}
+  .aw-s-mv .aw-wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+  .aw-s-mv .aw-label{display:block;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;line-height:1.5}
+  .aw-s-mv .aw-ph{background:var(--soft);overflow:hidden;border-radius:var(--r)}
+  .aw-s-mv .aw-ph img{width:100%;height:100%;object-fit:cover}
+  .aw-s-mv .aw-muted{color:var(--body)}
+  .aw-s-mv .aw-glass{background:rgba(255,255,255,.55);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:1px solid rgba(255,255,255,.85);box-shadow:0 20px 50px rgba(40,20,90,.08)}
+  .aw-s-mv .aw-grad{background:linear-gradient(90deg,#6D4BD8,#D9546D 55%,#E8914A);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .aw-s-mv .aw-center{text-align:center;max-width:720px;margin:0 auto}
+  .aw-s-mv .aw-center h2{font-size:clamp(28px,3.6vw,50px);font-weight:500;letter-spacing:-.04em}
+  .aw-s-mv .aw-fade{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease}
+  .aw-s-mv .aw-fade.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.aw-s-mv .aw-fade{opacity:1;transform:none;transition:none}}
+  .aw-s-mv .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px)}
+  .aw-s-mv .grid > div{border-radius:var(--r);padding:clamp(26px,4vw,48px)}
+  .aw-s-mv h3{font-size:clamp(20px,2vw,27px);margin-bottom:10px}
+  @media (max-width:800px){.aw-s-mv .grid{grid-template-columns:1fr}}
+</style>
+
+<div id="aw-s-mv-{{ section.id }}" class="aw-s-mv" style="--pt:{{ section.settings.padding_top }}px;--pb:{{ section.settings.padding_bottom }}px">
+  <div class="aw-wrap grid">
+    {%- for block in section.blocks -%}
+    <div class="aw-glass aw-fade" {{ block.shopify_attributes }}>
+      {%- if block.settings.label != blank -%}<span class="aw-label">{{ block.settings.label }}</span>{%- endif -%}
+      <h3>{{ block.settings.title }}</h3>
+      <p class="aw-muted">{{ block.settings.text }}</p>
+    </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<script>
+  (function () {
+    var root = document.getElementById('aw-s-mv-{{ section.id }}');
+    if (!root) return;
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: .12 });
+    root.querySelectorAll('.aw-fade').forEach(function (el) { if (window.Shopify && Shopify.designMode) el.classList.add('in'); else io.observe(el); });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Story: mission & vision",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 120
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Small label",
+          "default": "Our mission"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "To make everyday dressing easier, better and more dependable."
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Clothing women can wear often and enjoy repeatedly, without choosing between comfort, quality and style, with designs that stay wearable beyond seasons and trends."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Story: mission & vision",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "label": "Our mission",
+            "title": "To make everyday dressing easier, better and more dependable.",
+            "text": "Clothing women can wear often and enjoy repeatedly, without choosing between comfort, quality and style, with designs that stay wearable beyond seasons and trends."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "label": "Our vision",
+            "title": "To become India's most trusted name in everyday essentials.",
+            "text": "Setting a new standard for how daily clothing is designed, worn and experienced, chosen for reliability and genuine preference rather than passing trends."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
